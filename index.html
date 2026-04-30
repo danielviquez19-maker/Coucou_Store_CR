@@ -17,8 +17,8 @@
 <body>
   <div class="topbar">
     <div class="container">
-      <span>Catálogo digital · Consultá disponibilidad antes de comprar</span>
-      <span><a data-instagram target="_blank" rel="noopener">Instagram @coucou_storecr</a> · <a data-whatsapp="Hola Coucou Store CR, quiero información del catálogo." target="_blank" rel="noopener">WhatsApp 7425-2898</a></span>
+      <span>Catálogo digital · Consultas y disponibilidad por WhatsApp</span>
+      <span><a data-instagram target="_blank" rel="noopener">Instagram @coucou_storecr</a> · <a data-whatsapp="Hola Coucou Store CR, quiero información del catálogo." target="_blank" rel="noopener">WhatsApp <span data-whatsapp-display>+506 7245 2898</span></a></span>
     </div>
   </div>
 
@@ -32,9 +32,9 @@
         <a href="#contacto">Contacto</a>
       </div>
       <div class="nav-actions">
-        <a class="btn btn-ghost btn-small" data-catalog target="_blank" rel="noopener">Ver PDF</a>
+        <button class="btn btn-ghost btn-small" id="openQuote" type="button">Mi consulta <span class="nav-count" id="navQuoteCount">0</span></button>
         <a class="btn btn-primary btn-small" data-whatsapp="Hola Coucou Store CR, quiero hacer una consulta." target="_blank" rel="noopener">WhatsApp</a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">☰</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" type="button">☰</button>
       </div>
     </nav>
   </header>
@@ -43,24 +43,24 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">✨ Nueva vitrina digital en Costa Rica</span>
-          <h1>Bolsos y accesorios para elevar cualquier look.</h1>
-          <p class="hero-copy">Explorá una selección del catálogo de Coucou Store CR, filtrá por categoría y consultá cada producto directamente por WhatsApp para confirmar disponibilidad, colores y precio final.</p>
+          <span class="eyebrow">✨ Coucou Store CR</span>
+          <h1>Bolsos y accesorios con estilo, listos para descubrir.</h1>
+          <p class="hero-copy">Explorá el catálogo, compará opciones por categoría y armá tu consulta para confirmar disponibilidad, colores y precio final de forma rápida.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
             <a class="btn" data-whatsapp="Hola Coucou Store CR, quiero que me ayuden a elegir un producto del catálogo." target="_blank" rel="noopener">Pedir asesoría</a>
           </div>
           <div class="hero-proof">
-            <div class="proof-card"><strong>40+</strong><span>productos cargados en esta primera versión</span></div>
-            <div class="proof-card"><strong>2</strong><span>marcas: Nicole Lee y Nikky</span></div>
-            <div class="proof-card"><strong>PDF</strong><span>botón listo para el catálogo completo</span></div>
+            <div class="proof-card"><strong data-product-count>40+</strong><span>productos destacados</span></div>
+            <div class="proof-card"><strong>2</strong><span>líneas disponibles: Nicole Lee y Nikky</span></div>
+            <div class="proof-card"><strong>WA</strong><span>atención personalizada</span></div>
           </div>
         </div>
         <div class="hero-visual" aria-hidden="true">
-          <span class="float-badge">Coucou Picks</span>
-          <div class="visual-card visual-main"><img src="assets/img/products/p2-000.jpg" alt=""></div>
-          <div class="visual-card visual-mini"><img src="assets/img/products/p4-000.jpg" alt=""></div>
-          <div class="visual-card visual-tall"><img src="assets/img/products/p5-014.jpg" alt=""></div>
+          <span class="float-badge">Selección Coucou</span>
+          <div class="visual-card visual-main"><img src="assets/img/products/p2-000.jpg" alt="Bolso Nicole Lee Virtual Friend"></div>
+          <div class="visual-card visual-mini"><img src="assets/img/products/flo17474.jpg" alt="Bolso Flor Pop"></div>
+          <div class="visual-card visual-tall"><img src="assets/img/products/nk13137.jpg" alt="Mochila Nikky Sweet Girl"></div>
         </div>
       </div>
     </section>
@@ -70,8 +70,8 @@
         <div class="section-head">
           <div>
             <p class="section-kicker">Exploración rápida</p>
-            <h2>Comprá por tipo de producto</h2>
-            <p class="section-copy">Usá estas entradas para llegar más rápido al estilo que estás buscando.</p>
+            <h2>Encontrá tu producto por categoría</h2>
+            <p class="section-copy">Entradas rápidas para navegar el catálogo de una forma más simple, visual y ordenada.</p>
           </div>
           <a class="btn" href="#catalogo">Buscar por código</a>
         </div>
@@ -93,10 +93,10 @@
         <div class="section-head">
           <div>
             <p class="section-kicker">Catálogo</p>
-            <h2>Productos destacados</h2>
-            <p class="section-copy">Esta primera versión incluye una selección cargada desde el catálogo Mayo 2026. El botón del PDF queda preparado para cargar el catálogo completo en la carpeta de documentos.</p>
+            <h2>Catálogo seleccionado</h2>
+            <p class="section-copy">Buscá por producto, código, colección o marca. Podés abrir el detalle, guardar favoritos en tu consulta y enviarlos juntos por WhatsApp.</p>
           </div>
-          <a class="btn btn-primary" data-catalog target="_blank" rel="noopener">Abrir catálogo PDF</a>
+          <a class="btn btn-primary" data-catalog target="_blank" rel="noopener">Ver catálogo completo</a>
         </div>
 
         <div class="catalog-panel">
@@ -113,10 +113,13 @@
           </div>
           <div class="catalog-meta">
             <span id="productCount"><strong>0</strong> productos visibles</span>
-            <button class="btn btn-small" id="clearFilters">Limpiar filtros</button>
+            <div class="catalog-actions">
+              <button class="btn btn-small" id="clearFilters" type="button">Limpiar filtros</button>
+              <button class="btn btn-primary btn-small" id="openQuoteInline" type="button">Ver mi consulta <span class="nav-count" id="inlineQuoteCount">0</span></button>
+            </div>
           </div>
           <div class="product-grid" id="productGrid"></div>
-          <div class="notice">Nota: los precios son de referencia del catálogo recibido y pueden cambiar según disponibilidad, color, impuestos y condiciones de venta. Confirmá siempre el precio final por WhatsApp antes de comprar.</div>
+          <div class="notice">Los precios son de referencia y no incluyen el 13% de impuestos. La disponibilidad, color y precio final deben confirmarse por WhatsApp antes de comprar.</div>
         </div>
       </div>
     </section>
@@ -127,13 +130,13 @@
           <div>
             <p class="section-kicker">Proceso de compra</p>
             <h2>Una compra simple y asistida</h2>
-            <p class="section-copy">La web funciona como vitrina digital: el usuario descubre, filtra y consulta por WhatsApp para cerrar la venta con atención personalizada.</p>
+            <p class="section-copy">Elegí lo que te gusta, agregalo a tu consulta y coordiná disponibilidad, colores, pago y entrega directamente con Coucou Store CR.</p>
           </div>
         </div>
         <div class="steps">
           <div class="step"><div class="step-num">1</div><h3>Explorá el catálogo</h3><p>Buscá por categoría, colección, marca o código de producto.</p></div>
-          <div class="step"><div class="step-num">2</div><h3>Consultá disponibilidad</h3><p>Cada producto tiene un botón de WhatsApp con mensaje automático para agilizar la atención.</p></div>
-          <div class="step"><div class="step-num">3</div><h3>Coordiná tu compra</h3><p>Confirmá colores, precio final, método de pago, entrega o envío directamente con Coucou Store CR.</p></div>
+          <div class="step"><div class="step-num">2</div><h3>Armá tu consulta</h3><p>Agregá uno o varios productos y revisá tu lista antes de enviarla.</p></div>
+          <div class="step"><div class="step-num">3</div><h3>Coordiná tu compra</h3><p>Confirmá colores, precio final, método de pago, entrega o envío por WhatsApp.</p></div>
         </div>
       </div>
     </section>
@@ -143,8 +146,8 @@
         <div class="cta">
           <div>
             <p class="section-kicker">Contacto directo</p>
-            <h2>¿Ya viste algo que te gustó?</h2>
-            <p>Escribinos por WhatsApp y te ayudamos a confirmar disponibilidad, colores y recomendaciones según tu estilo o presupuesto.</p>
+            <h2>¿Tenés un favorito en mente?</h2>
+            <p>Enviá tu consulta y te ayudamos a confirmar disponibilidad, colores, precio final y opciones recomendadas según tu estilo.</p>
           </div>
           <a class="btn btn-primary" data-whatsapp="Hola Coucou Store CR, vi la página web y quiero consultar disponibilidad de productos." target="_blank" rel="noopener">Escribir por WhatsApp</a>
         </div>
@@ -155,15 +158,37 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><h3>Coucou Store CR</h3><p>Vitrina digital de bolsos, accesorios, sets y productos seleccionados del catálogo.</p></div>
-        <div><h3>Redes</h3><p><a data-instagram target="_blank" rel="noopener">Instagram @coucou_storecr</a><br><a data-whatsapp="Hola Coucou Store CR, quiero información." target="_blank" rel="noopener">WhatsApp 7425-2898</a></p></div>
-        <div><h3>Catálogo</h3><p><a data-catalog target="_blank" rel="noopener">Solicitar o abrir PDF completo</a><br>Precios sujetos a confirmación.</p></div>
+        <div><h3>Coucou Store CR</h3><p>Bolsos, accesorios, sets y detalles seleccionados para complementar tu estilo.</p></div>
+        <div><h3>Redes</h3><p><a data-instagram target="_blank" rel="noopener">Instagram @coucou_storecr</a><br><a data-whatsapp="Hola Coucou Store CR, quiero información." target="_blank" rel="noopener">WhatsApp <span data-whatsapp-display>+506 7245 2898</span></a></p></div>
+        <div><h3>Catálogo</h3><p><a data-catalog target="_blank" rel="noopener">Abrir PDF completo</a><br>Precios y disponibilidad sujetos a confirmación.</p></div>
       </div>
-      <div class="footer-bottom">Sitio estático listo para GitHub y AWS Amplify / S3. Versión inicial v1.0.</div>
+      <div class="footer-bottom">© 2026 Coucou Store CR. Todos los derechos reservados.</div>
     </div>
   </footer>
 
+  <button class="quote-fab" id="quoteFab" type="button" aria-label="Abrir mi consulta">🛍 <span id="quoteFabCount">0</span></button>
   <a class="whatsapp-float" data-whatsapp="Hola Coucou Store CR, quiero consultar el catálogo." target="_blank" rel="noopener" aria-label="WhatsApp Coucou Store CR">☎</a>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="quote-drawer" id="quoteDrawer" aria-hidden="true" aria-label="Mi consulta">
+    <div class="drawer-head">
+      <div>
+        <p class="section-kicker">Mi consulta</p>
+        <h2>Productos seleccionados</h2>
+      </div>
+      <button class="icon-btn" id="closeQuote" type="button" aria-label="Cerrar consulta">×</button>
+    </div>
+    <div class="drawer-list" id="quoteList"></div>
+    <div class="drawer-actions">
+      <button class="btn" id="clearQuote" type="button">Vaciar lista</button>
+      <a class="btn btn-primary" id="sendQuote" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+    </div>
+  </aside>
+
+  <dialog class="product-modal" id="productModal">
+    <button class="icon-btn modal-close" id="closeModal" type="button" aria-label="Cerrar detalle">×</button>
+    <div id="modalContent"></div>
+  </dialog>
 
   <script src="assets/js/products.js"></script>
   <script src="assets/js/app.js"></script>
